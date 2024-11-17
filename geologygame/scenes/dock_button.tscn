@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3svh6xb0h755"]
+
+[ext_resource type="Script" path="res://scripts/dock_button.gd" id="1_4ggdk"]
+[ext_resource type="Texture2D" uid="uid://dis8cat8ktmof" path="res://sprites/dock_button/dock_button.png" id="1_klast"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1tbp"]
+size = Vector2(124, 32)
+
+[node name="DockButton" type="Area2D"]
+script = ExtResource("1_4ggdk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_klast")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_t1tbp")

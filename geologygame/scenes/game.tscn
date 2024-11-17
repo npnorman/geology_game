@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://d0oll7s2b2q0p"]
+
+[ext_resource type="Texture2D" uid="uid://dn0ustqpxrntp" path="res://sprites/98-background.png" id="1_eu3e4"]
+[ext_resource type="PackedScene" uid="uid://c3svh6xb0h755" path="res://scenes/dock_button.tscn" id="2_m4wos"]
+[ext_resource type="Texture2D" uid="uid://b8sxpg7egs651" path="res://sprites/dock_button_icons_globe.png" id="3_00eak"]
+[ext_resource type="PackedScene" uid="uid://biow1vded5lqa" path="res://scenes/desktop_icon.tscn" id="4_h504c"]
+[ext_resource type="Texture2D" uid="uid://dvp2t14v1loyr" path="res://sprites/seis_icon.png" id="5_k2puc"]
+[ext_resource type="PackedScene" uid="uid://bck62v163p0j4" path="res://scenes/clock.tscn" id="6_e05s8"]
+[ext_resource type="PackedScene" uid="uid://doxu3oo3kxdoh" path="res://scenes/window.tscn" id="7_g5slx"]
+
+[sub_resource type="Theme" id="Theme_vct16"]
+
+[node name="Game" type="Node2D"]
+
+[node name="98Background" type="Sprite2D" parent="."]
+position = Vector2(512, 384)
+texture = ExtResource("1_eu3e4")
+
+[node name="DockButton" parent="." instance=ExtResource("2_m4wos")]
+position = Vector2(69, 746)
+
+[node name="Label" type="Label" parent="DockButton"]
+offset_left = -28.0
+offset_top = -20.0
+offset_right = 52.0
+offset_bottom = 15.0
+theme = SubResource("Theme_vct16")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="globeIcon" type="Sprite2D" parent="DockButton"]
+
+[node name="DockButtonIconsGlobe" type="Sprite2D" parent="DockButton"]
+position = Vector2(-40, -1.00003)
+scale = Vector2(0.945313, 0.858053)
+texture = ExtResource("3_00eak")
+
+[node name="DesktopIcon" parent="." instance=ExtResource("4_h504c")]
+position = Vector2(47, 45)
+
+[node name="Sprite2D2" type="Sprite2D" parent="DesktopIcon"]
+position = Vector2(-0.999999, 0)
+scale = Vector2(1.8125, 1.875)
+texture = ExtResource("5_k2puc")
+
+[node name="Label" type="Label" parent="DesktopIcon"]
+offset_left = -27.0
+offset_top = 23.0
+offset_right = 43.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 9
+text = "Seismograph"
+
+[node name="clock" parent="." instance=ExtResource("6_e05s8")]
+position = Vector2(899, 728)
+
+[node name="Window" parent="." instance=ExtResource("7_g5slx")]
+z_index = 3
+position = Vector2(271, 68)

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://biow1vded5lqa"]
+
+[ext_resource type="Script" path="res://scripts/desktop_icon.gd" id="1_3w5oe"]
+[ext_resource type="Texture2D" uid="uid://bcwusek5yhd7n" path="res://sprites/overlay.png" id="1_huh1f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_khoy7"]
+size = Vector2(20, 24)
+
+[node name="DesktopIcon" type="Area2D"]
+script = ExtResource("1_3w5oe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_khoy7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(9.53674e-07, 6)
+scale = Vector2(1.875, 2.25)
+texture = ExtResource("1_huh1f")
