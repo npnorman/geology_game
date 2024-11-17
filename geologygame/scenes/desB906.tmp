@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://biow1vded5lqa"]
+[gd_scene load_steps=4 format=3 uid="uid://biow1vded5lqa"]
 
 [ext_resource type="Script" path="res://scripts/desktop_icon.gd" id="1_3w5oe"]
 [ext_resource type="Texture2D" uid="uid://bcwusek5yhd7n" path="res://sprites/overlay.png" id="1_huh1f"]
-[ext_resource type="Texture2D" uid="uid://dvp2t14v1loyr" path="res://sprites/seis_icon.png" id="3_nutqu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khoy7"]
 size = Vector2(20, 24)
@@ -16,21 +15,7 @@ scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_khoy7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(9.53674e-07, 6)
 scale = Vector2(1.875, 2.25)
 texture = ExtResource("1_huh1f")
-
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(0.25, -1.64063)
-scale = Vector2(1.85937, 1.79004)
-texture = ExtResource("3_nutqu")
-
-[node name="Label" type="Label" parent="."]
-offset_left = -34.0
-offset_top = 26.0
-offset_right = 35.0
-offset_bottom = 42.0
-theme_override_font_sizes/font_size = 9
-text = "default"
-horizontal_alignment = 1
-vertical_alignment = 1
