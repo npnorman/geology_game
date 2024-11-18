@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://ci7220i6cqlhf"]
+[gd_scene load_steps=10 format=3 uid="uid://ci7220i6cqlhf"]
 
 [ext_resource type="Texture2D" uid="uid://6y4qbuplgvwf" path="res://sprites/window/noteWindow.png" id="1_b1ycd"]
 [ext_resource type="Script" path="res://scripts/window.gd" id="1_o0uk4"]
 [ext_resource type="Script" path="res://scripts/window_close.gd" id="3_8aqb5"]
 [ext_resource type="Texture2D" uid="uid://bdar5krh1be7x" path="res://sprites/window/x_default.png" id="4_m664v"]
 [ext_resource type="Texture2D" uid="uid://dmdvr3vy55k4g" path="res://sprites/window/minus_default.png" id="5_n6mty"]
+[ext_resource type="PackedScene" uid="uid://bdguwtfeh8c6k" path="res://scenes/button_custom.tscn" id="6_xi6ri"]
+[ext_resource type="Script" path="res://scripts/extended/button_custom_reset.gd" id="7_apfom"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ctlhx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f8ui3"]
 size = Vector2(16, 14)
@@ -16,14 +20,42 @@ title = "Notepad"
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(135, 161)
 texture = ExtResource("1_b1ycd")
+metadata/_edit_lock_ = true
 
-[node name="TextEdit" type="TextEdit" parent="."]
-offset_left = 7.0
-offset_top = 31.0
-offset_right = 114.0
-offset_bottom = 315.0
-scale = Vector2(2.4, 1)
-text = "This is text"
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextEdit" type="TextEdit" parent="Control"]
+z_index = 1
+offset_left = 13.0
+offset_top = 38.0
+offset_right = 257.0
+offset_bottom = 277.0
+theme_override_colors/background_color = Color(0, 0, 0, 0)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ctlhx")
+wrap_mode = 1
+caret_blink = true
+
+[node name="disclaimer" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 7.05
+anchor_right = 0.5
+anchor_bottom = 7.062
+offset_left = -9.0
+offset_right = 116.0
+offset_bottom = 35.52
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "*The University does not track or save your notes."
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="close" type="Area2D" parent="."]
 position = Vector2(255, 18)
@@ -57,3 +89,10 @@ offset_right = 98.0
 offset_bottom = 29.0
 text = "GeOS:"
 metadata/_edit_use_anchors_ = true
+
+[node name="ButtonCustom" parent="." instance=ExtResource("6_xi6ri")]
+z_index = 1
+position = Vector2(200, 299)
+script = ExtResource("7_apfom")
+buttonText = "Reset"
+font_size = 19

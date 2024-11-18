@@ -13,9 +13,9 @@ const X_PRESSED = preload("res://sprites/window/x_pressed.png")
 func _input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("lm_click"):
 		sprite_2d.texture = X_PRESSED
-		
-		#close window
-		window.visible = false
 	
 	if event.is_action_released("lm_click"):
 		sprite_2d.texture = X_DEFAULT
+		
+		#close window
+		window.visible = false

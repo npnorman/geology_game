@@ -15,7 +15,9 @@ size = Vector2(124, 32)
 script = ExtResource("1_4ggdk")
 
 [node name="MenuTile" type="Node2D" parent="."]
+visible = false
 z_index = 4
+position = Vector2(0, 12)
 
 [node name="Menu" type="Sprite2D" parent="MenuTile"]
 z_index = 4
@@ -51,10 +53,11 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Sprite2D" parent="."]
-z_index = 5
+z_index = 10
 texture_filter = 1
 texture = ExtResource("1_klast")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 10
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_t1tbp")
