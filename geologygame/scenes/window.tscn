@@ -47,3 +47,4 @@ offset_top = 5.0
 offset_right = 101.0
 offset_bottom = 28.0
 text = "GeOS:"
+metadata/_edit_use_anchors_ = true

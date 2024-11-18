@@ -1,13 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0oll7s2b2q0p"]
+[gd_scene load_steps=17 format=3 uid="uid://d0oll7s2b2q0p"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_2vd4i"]
 [ext_resource type="Texture2D" uid="uid://dn0ustqpxrntp" path="res://sprites/98-background.png" id="1_eu3e4"]
 [ext_resource type="PackedScene" uid="uid://c3svh6xb0h755" path="res://scenes/dock_button.tscn" id="2_m4wos"]
 [ext_resource type="Texture2D" uid="uid://b8sxpg7egs651" path="res://sprites/dock_button_icons_globe.png" id="3_00eak"]
 [ext_resource type="PackedScene" uid="uid://biow1vded5lqa" path="res://scenes/desktop_icon.tscn" id="4_h504c"]
-[ext_resource type="Texture2D" uid="uid://dvp2t14v1loyr" path="res://sprites/seis_icon.png" id="5_k2puc"]
 [ext_resource type="PackedScene" uid="uid://bck62v163p0j4" path="res://scenes/clock.tscn" id="6_e05s8"]
+[ext_resource type="Texture2D" uid="uid://b8qx06lc8845n" path="res://sprites/icons/seismograph_icon.png" id="7_1lj2y"]
 [ext_resource type="PackedScene" uid="uid://doxu3oo3kxdoh" path="res://scenes/window.tscn" id="7_g5slx"]
+[ext_resource type="Texture2D" uid="uid://4031e1d46sjr" path="res://sprites/icons/tutorial_icon.png" id="8_ilhiy"]
+[ext_resource type="Texture2D" uid="uid://pf0uctdvlcyn" path="res://sprites/icons/email_icon.png" id="9_1cr0g"]
+[ext_resource type="Texture2D" uid="uid://cggalrnfylkxn" path="res://sprites/icons/report_icon.png" id="10_lcp1w"]
+[ext_resource type="Texture2D" uid="uid://ccfijldq4fdyt" path="res://sprites/icons/triangulation_icon.png" id="11_mno8p"]
+[ext_resource type="Texture2D" uid="uid://jyaie4281coj" path="res://sprites/icons/wave_graph_icon.png" id="12_8pokb"]
+[ext_resource type="Texture2D" uid="uid://co7kqwfspdysa" path="res://sprites/icons/calculator_icon.png" id="13_dsxlh"]
+[ext_resource type="PackedScene" uid="uid://ci7220i6cqlhf" path="res://scenes/notepad.tscn" id="15_suxqu"]
 
 [sub_resource type="Theme" id="Theme_vct16"]
 
@@ -21,12 +28,13 @@ script = ExtResource("1_2vd4i")
 
 [node name="SeismographWindow" parent="Windows" instance=ExtResource("7_g5slx")]
 z_index = 3
-position = Vector2(246, 68)
+position = Vector2(307, 55)
 title = "Seismograph Viewer"
 
 [node name="98Background" type="Sprite2D" parent="."]
 position = Vector2(512, 384)
 texture = ExtResource("1_eu3e4")
+metadata/_edit_lock_ = true
 
 [node name="DockButton" parent="." instance=ExtResource("2_m4wos")]
 position = Vector2(69, 746)
@@ -54,11 +62,52 @@ position = Vector2(-40, -1.00003)
 scale = Vector2(0.945313, 0.858053)
 texture = ExtResource("3_00eak")
 
-[node name="DesktopIcon" parent="." instance=ExtResource("4_h504c")]
-position = Vector2(43, 43)
-icon_texture = ExtResource("5_k2puc")
-label_text = "seismograph"
-window = "seismograph"
-
 [node name="clock" parent="." instance=ExtResource("6_e05s8")]
 position = Vector2(899, 728)
+
+[node name="DesktopIcons" type="Node" parent="."]
+
+[node name="Tutorial" parent="DesktopIcons" instance=ExtResource("4_h504c")]
+position = Vector2(68, 144)
+icon_texture = ExtResource("8_ilhiy")
+label_text = "Tutorial"
+window = "tutorial"
+
+[node name="Email" parent="DesktopIcons" instance=ExtResource("4_h504c")]
+position = Vector2(68, 239)
+icon_texture = ExtResource("9_1cr0g")
+label_text = "Email"
+window = "email"
+
+[node name="Report" parent="DesktopIcons" instance=ExtResource("4_h504c")]
+position = Vector2(227, 52)
+icon_texture = ExtResource("10_lcp1w")
+label_text = "Report"
+window = "report"
+
+[node name="Triangulator" parent="DesktopIcons" instance=ExtResource("4_h504c")]
+position = Vector2(227, 144)
+icon_texture = ExtResource("11_mno8p")
+label_text = "Triangulator"
+window = "triangulator"
+
+[node name="WaveGraph" parent="DesktopIcons" instance=ExtResource("4_h504c")]
+position = Vector2(149, 143)
+icon_texture = ExtResource("12_8pokb")
+label_text = "Wave Graph"
+window = "waveGraph"
+
+[node name="Calculator" parent="DesktopIcons" instance=ExtResource("4_h504c")]
+position = Vector2(148, 51)
+icon_texture = ExtResource("13_dsxlh")
+label_text = "Calculator"
+window = "calculator"
+
+[node name="Seismograph" parent="DesktopIcons" instance=ExtResource("4_h504c")]
+position = Vector2(67, 51)
+icon_texture = ExtResource("7_1lj2y")
+label_text = "Seismograph"
+window = "seismograph"
+
+[node name="Notepad" parent="." instance=ExtResource("15_suxqu")]
+position = Vector2(17, 302)
