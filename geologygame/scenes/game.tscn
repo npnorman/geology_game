@@ -1,11 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://d0oll7s2b2q0p"]
+[gd_scene load_steps=26 format=3 uid="uid://d0oll7s2b2q0p"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_2vd4i"]
 [ext_resource type="Texture2D" uid="uid://dn0ustqpxrntp" path="res://sprites/98-background.png" id="1_eu3e4"]
 [ext_resource type="PackedScene" uid="uid://c3svh6xb0h755" path="res://scenes/dock_button.tscn" id="2_m4wos"]
-[ext_resource type="Texture2D" uid="uid://b8sxpg7egs651" path="res://sprites/dock_button_icons_globe.png" id="3_00eak"]
 [ext_resource type="PackedScene" uid="uid://biow1vded5lqa" path="res://scenes/desktop_icon.tscn" id="4_h504c"]
 [ext_resource type="PackedScene" uid="uid://bck62v163p0j4" path="res://scenes/clock.tscn" id="6_e05s8"]
+[ext_resource type="Texture2D" uid="uid://cjdf684j08dnx" path="res://sprites/animated_sprites/globe_spinning_icon_spritesheet.png" id="6_smy7q"]
 [ext_resource type="Texture2D" uid="uid://b8qx06lc8845n" path="res://sprites/icons/seismograph_icon.png" id="7_1lj2y"]
 [ext_resource type="PackedScene" uid="uid://doxu3oo3kxdoh" path="res://scenes/window.tscn" id="7_g5slx"]
 [ext_resource type="Texture2D" uid="uid://4031e1d46sjr" path="res://sprites/icons/tutorial_icon.png" id="8_ilhiy"]
@@ -18,6 +18,63 @@
 [ext_resource type="PackedScene" uid="uid://ci7220i6cqlhf" path="res://scenes/notepad.tscn" id="15_suxqu"]
 
 [sub_resource type="Theme" id="Theme_vct16"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ljcs"]
+atlas = ExtResource("6_smy7q")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irqqi"]
+atlas = ExtResource("6_smy7q")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i26ra"]
+atlas = ExtResource("6_smy7q")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pejky"]
+atlas = ExtResource("6_smy7q")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qopne"]
+atlas = ExtResource("6_smy7q")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xt1m7"]
+atlas = ExtResource("6_smy7q")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2wwn"]
+atlas = ExtResource("6_smy7q")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_14g6b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ljcs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irqqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i26ra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pejky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qopne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xt1m7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2wwn")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="Game" type="Node2D"]
 
@@ -57,11 +114,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="DockButtonIconsGlobe" type="Sprite2D" parent="DockButton"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DockButton"]
 z_index = 10
-position = Vector2(-40, -1.00003)
-scale = Vector2(0.945313, 0.858053)
-texture = ExtResource("3_00eak")
+position = Vector2(-40, 0)
+scale = Vector2(0.8125, 0.8125)
+sprite_frames = SubResource("SpriteFrames_14g6b")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.614203
 
 [node name="clock" parent="." instance=ExtResource("6_e05s8")]
 position = Vector2(899, 728)
