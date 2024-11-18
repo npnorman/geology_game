@@ -1,15 +1,87 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3svh6xb0h755"]
+[gd_scene load_steps=18 format=3 uid="uid://c3svh6xb0h755"]
 
 [ext_resource type="Script" path="res://scripts/dock_button.gd" id="1_4ggdk"]
 [ext_resource type="Texture2D" uid="uid://dis8cat8ktmof" path="res://sprites/dock_button/dock_button.png" id="1_klast"]
 [ext_resource type="Texture2D" uid="uid://csidx240q0gan" path="res://sprites/dock_button/start_menu.png" id="2_py4si"]
 [ext_resource type="Script" path="res://scripts/quit.gd" id="3_tjuba"]
+[ext_resource type="Texture2D" uid="uid://cjdf684j08dnx" path="res://sprites/animated_sprites/globe_spinning_icon_spritesheet.png" id="5_uomfy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i415q"]
 size = Vector2(115, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1tbp"]
 size = Vector2(124, 32)
+
+[sub_resource type="Theme" id="Theme_ovty8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ektwh"]
+atlas = ExtResource("5_uomfy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ljcs"]
+atlas = ExtResource("5_uomfy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irqqi"]
+atlas = ExtResource("5_uomfy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i26ra"]
+atlas = ExtResource("5_uomfy")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pejky"]
+atlas = ExtResource("5_uomfy")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qopne"]
+atlas = ExtResource("5_uomfy")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xt1m7"]
+atlas = ExtResource("5_uomfy")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2wwn"]
+atlas = ExtResource("5_uomfy")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v4yio"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ektwh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ljcs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irqqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i26ra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pejky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qopne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xt1m7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2wwn")
+}],
+"loop": true,
+"name": &"spin",
+"speed": 5.0
+}]
 
 [node name="DockButton" type="Area2D"]
 script = ExtResource("1_4ggdk")
@@ -62,3 +134,24 @@ texture = ExtResource("1_klast")
 z_index = 10
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_t1tbp")
+
+[node name="Label" type="Label" parent="."]
+z_index = 10
+offset_left = -28.0
+offset_top = -20.0
+offset_right = 52.0
+offset_bottom = 15.0
+theme = SubResource("Theme_ovty8")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 10
+position = Vector2(-40, 0)
+scale = Vector2(0.8125, 0.8125)
+sprite_frames = SubResource("SpriteFrames_v4yio")
+animation = &"idle"

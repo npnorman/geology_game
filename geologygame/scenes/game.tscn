@@ -1,11 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://d0oll7s2b2q0p"]
+[gd_scene load_steps=17 format=3 uid="uid://d0oll7s2b2q0p"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_2vd4i"]
 [ext_resource type="Texture2D" uid="uid://dn0ustqpxrntp" path="res://sprites/98-background.png" id="1_eu3e4"]
 [ext_resource type="PackedScene" uid="uid://c3svh6xb0h755" path="res://scenes/dock_button.tscn" id="2_m4wos"]
 [ext_resource type="PackedScene" uid="uid://biow1vded5lqa" path="res://scenes/desktop_icon.tscn" id="4_h504c"]
+[ext_resource type="PackedScene" uid="uid://bfmbclxnq4la6" path="res://scenes/sp_interval_calculator.tscn" id="4_k58i7"]
 [ext_resource type="PackedScene" uid="uid://bck62v163p0j4" path="res://scenes/clock.tscn" id="6_e05s8"]
-[ext_resource type="Texture2D" uid="uid://cjdf684j08dnx" path="res://sprites/animated_sprites/globe_spinning_icon_spritesheet.png" id="6_smy7q"]
 [ext_resource type="Texture2D" uid="uid://b8qx06lc8845n" path="res://sprites/icons/seismograph_icon.png" id="7_1lj2y"]
 [ext_resource type="PackedScene" uid="uid://doxu3oo3kxdoh" path="res://scenes/window.tscn" id="7_g5slx"]
 [ext_resource type="Texture2D" uid="uid://4031e1d46sjr" path="res://sprites/icons/tutorial_icon.png" id="8_ilhiy"]
@@ -16,65 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://co7kqwfspdysa" path="res://sprites/icons/calculator_icon.png" id="13_dsxlh"]
 [ext_resource type="Texture2D" uid="uid://csf5ysenqvdbj" path="res://sprites/icons/notes_icon.png" id="14_jfwdn"]
 [ext_resource type="PackedScene" uid="uid://ci7220i6cqlhf" path="res://scenes/notepad.tscn" id="15_suxqu"]
-
-[sub_resource type="Theme" id="Theme_vct16"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5ljcs"]
-atlas = ExtResource("6_smy7q")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_irqqi"]
-atlas = ExtResource("6_smy7q")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i26ra"]
-atlas = ExtResource("6_smy7q")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pejky"]
-atlas = ExtResource("6_smy7q")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qopne"]
-atlas = ExtResource("6_smy7q")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xt1m7"]
-atlas = ExtResource("6_smy7q")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a2wwn"]
-atlas = ExtResource("6_smy7q")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_14g6b"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5ljcs")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_irqqi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i26ra")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pejky")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qopne")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xt1m7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a2wwn")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}]
 
 [node name="Game" type="Node2D"]
 
@@ -92,6 +33,9 @@ title = "Seismograph Viewer"
 [node name="NotepadWindow" parent="Windows" instance=ExtResource("15_suxqu")]
 position = Vector2(19, 300)
 
+[node name="SPIntervalCalculator" parent="Windows" instance=ExtResource("4_k58i7")]
+position = Vector2(304, 31)
+
 [node name="98Background" type="Sprite2D" parent="."]
 position = Vector2(512, 384)
 texture = ExtResource("1_eu3e4")
@@ -99,29 +43,6 @@ metadata/_edit_lock_ = true
 
 [node name="DockButton" parent="." instance=ExtResource("2_m4wos")]
 position = Vector2(69, 746)
-
-[node name="Label" type="Label" parent="DockButton"]
-z_index = 10
-offset_left = -28.0
-offset_top = -20.0
-offset_right = 52.0
-offset_bottom = 15.0
-theme = SubResource("Theme_vct16")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
-text = "Start"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DockButton"]
-z_index = 10
-position = Vector2(-40, 0)
-scale = Vector2(0.8125, 0.8125)
-sprite_frames = SubResource("SpriteFrames_14g6b")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.614203
 
 [node name="clock" parent="." instance=ExtResource("6_e05s8")]
 position = Vector2(899, 728)
@@ -162,7 +83,7 @@ window = "waveGraph"
 position = Vector2(148, 51)
 icon_texture = ExtResource("13_dsxlh")
 label_text = "Calculator"
-window = "calculator"
+window = "sp_interval"
 
 [node name="Notes" parent="DesktopIcons" instance=ExtResource("4_h504c")]
 position = Vector2(151, 239)

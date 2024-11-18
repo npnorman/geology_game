@@ -1,0 +1,189 @@
+[gd_scene load_steps=14 format=3 uid="uid://bfmbclxnq4la6"]
+
+[ext_resource type="Script" path="res://scripts/window.gd" id="1_amahh"]
+[ext_resource type="Texture2D" uid="uid://mm4k2mfm81vx" path="res://sprites/window/window.png" id="2_vo37j"]
+[ext_resource type="Script" path="res://scripts/window_close.gd" id="3_506o5"]
+[ext_resource type="Texture2D" uid="uid://bdar5krh1be7x" path="res://sprites/window/x_default.png" id="4_723uq"]
+[ext_resource type="Texture2D" uid="uid://dmdvr3vy55k4g" path="res://sprites/window/minus_default.png" id="5_oghdr"]
+[ext_resource type="PackedScene" uid="uid://bdguwtfeh8c6k" path="res://scenes/button_custom.tscn" id="6_1u3ny"]
+[ext_resource type="Script" path="res://scripts/extended/button_custom_SP_Calculate.gd" id="7_5e6m2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6o17r"]
+size = Vector2(16, 14)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6xt8e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ylmt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cr5d7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2omm7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bolyw"]
+
+[node name="SPIntervalCalculator" type="Node2D"]
+script = ExtResource("1_amahh")
+title = "S-P Interval"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(351, 285)
+texture = ExtResource("2_vo37j")
+
+[node name="close" type="Area2D" parent="."]
+position = Vector2(682, 17)
+script = ExtResource("3_506o5")
+
+[node name="Sprite2D" type="Sprite2D" parent="close"]
+position = Vector2(0.999971, 0)
+scale = Vector2(0.484375, 0.445312)
+texture = ExtResource("4_723uq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="close"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_6o17r")
+
+[node name="minimize" type="Area2D" parent="."]
+position = Vector2(663, 17)
+
+[node name="Sprite2D" type="Sprite2D" parent="minimize"]
+position = Vector2(0.999971, 0)
+scale = Vector2(0.484375, 0.445312)
+texture = ExtResource("5_oghdr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="minimize"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_6o17r")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 9.0
+offset_top = 5.0
+offset_right = 101.0
+offset_bottom = 28.0
+text = "GeOS:"
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="."]
+offset_left = 44.0
+offset_top = 57.0
+offset_right = 656.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 53
+text = "S - P Interval Calculator"
+horizontal_alignment = 1
+
+[node name="sWave" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 264.0
+offset_right = 358.0
+offset_bottom = 308.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 31
+text = "S-wave Arrival Time"
+horizontal_alignment = 2
+
+[node name="pWave" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 192.0
+offset_right = 358.0
+offset_bottom = 236.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 31
+text = "P-wave Arrival Time"
+horizontal_alignment = 2
+
+[node name="sp" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 416.0
+offset_right = 358.0
+offset_bottom = 460.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 31
+text = "S-P Interval = S - P ="
+horizontal_alignment = 2
+
+[node name="min" type="Label" parent="."]
+offset_left = 568.0
+offset_top = 416.0
+offset_right = 641.0
+offset_bottom = 460.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 31
+text = "min"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 376.0
+offset_top = 416.0
+offset_right = 563.0
+offset_bottom = 456.0
+color = Color(0.633757, 0.633757, 0.633757, 1)
+
+[node name="sp_output" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = -4.0
+offset_right = 172.0
+offset_bottom = 40.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 31
+text = "0"
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 384.0
+offset_top = 192.0
+offset_right = 632.0
+offset_bottom = 245.0
+color = Color(0.907942, 0.907942, 0.907942, 1)
+
+[node name="LineEdit_P" type="LineEdit" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 17.0
+offset_right = 248.0
+offset_bottom = 55.0
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6xt8e")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_1ylmt")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cr5d7")
+text = "1"
+max_length = 10
+caret_blink = true
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = 385.0
+offset_top = 267.0
+offset_right = 633.0
+offset_bottom = 320.0
+color = Color(0.907942, 0.907942, 0.907942, 1)
+
+[node name="LineEdit_S" type="LineEdit" parent="ColorRect3"]
+layout_mode = 0
+offset_left = 17.0
+offset_right = 248.0
+offset_bottom = 55.0
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2omm7")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_bolyw")
+text = "1"
+max_length = 10
+caret_blink = true
+
+[node name="ButtonCustom" parent="." instance=ExtResource("6_1u3ny")]
+position = Vector2(346, 523)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("7_5e6m2")
+buttonText = "Calculate"
+font_size = 19

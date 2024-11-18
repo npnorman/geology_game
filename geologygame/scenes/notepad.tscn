@@ -30,6 +30,7 @@ offset_bottom = 40.0
 
 [node name="TextEdit" type="TextEdit" parent="Control"]
 z_index = 1
+layout_mode = 0
 offset_left = 13.0
 offset_top = 38.0
 offset_right = 257.0
