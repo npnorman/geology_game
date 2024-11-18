@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://c3svh6xb0h755"]
+[gd_scene load_steps=21 format=3 uid="uid://c3svh6xb0h755"]
 
 [ext_resource type="Script" path="res://scripts/dock_button.gd" id="1_4ggdk"]
 [ext_resource type="Texture2D" uid="uid://dis8cat8ktmof" path="res://sprites/dock_button/dock_button.png" id="1_klast"]
 [ext_resource type="Texture2D" uid="uid://csidx240q0gan" path="res://sprites/dock_button/start_menu.png" id="2_py4si"]
 [ext_resource type="Script" path="res://scripts/quit.gd" id="3_tjuba"]
+[ext_resource type="Script" path="res://scenes/button_custom.gd" id="5_3f5vr"]
 [ext_resource type="PackedScene" uid="uid://bdguwtfeh8c6k" path="res://scenes/button_custom.tscn" id="5_a51bc"]
 [ext_resource type="Texture2D" uid="uid://cjdf684j08dnx" path="res://sprites/animated_sprites/globe_spinning_icon_spritesheet.png" id="5_uomfy"]
 [ext_resource type="Script" path="res://scripts/extended/button_custom_console.gd" id="6_wat52"]
@@ -101,6 +102,28 @@ texture = ExtResource("2_py4si")
 z_index = 4
 script = ExtResource("3_tjuba")
 
+[node name="ButtonCustom" parent="MenuTile/Quit" instance=ExtResource("5_a51bc")]
+visible = false
+z_index = 10
+position = Vector2(26, -71)
+scale = Vector2(0.525, 0.525)
+script = ExtResource("5_3f5vr")
+buttonText = "Yes"
+font_size = 25
+
+[node name="Confirm" type="Label" parent="MenuTile/Quit"]
+visible = false
+z_index = 10
+offset_left = -54.0
+offset_top = -85.0
+offset_right = -4.0
+offset_bottom = -50.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -5
+theme_override_font_sizes/font_size = 11
+text = "Are you sure?"
+autowrap_mode = 2
+
 [node name="Sprite2D" type="Sprite2D" parent="MenuTile/Quit"]
 z_index = 4
 position = Vector2(-10.7886, -92.5)
@@ -128,7 +151,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ButtonCustom" parent="MenuTile" instance=ExtResource("5_a51bc")]
 z_index = 10
-position = Vector2(1, -65)
+position = Vector2(1, -45)
 scale = Vector2(0.945, 0.945)
 script = ExtResource("6_wat52")
 buttonText = "Console"
