@@ -36,9 +36,11 @@ offset_top = 38.0
 offset_right = 257.0
 offset_bottom = 277.0
 theme_override_colors/background_color = Color(0, 0, 0, 0)
+theme_override_colors/font_placeholder_color = Color(0.412152, 0.412152, 0.412152, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/caret_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ctlhx")
+placeholder_text = "Enter your notes here"
 wrap_mode = 1
 caret_blink = true
 

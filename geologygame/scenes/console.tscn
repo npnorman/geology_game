@@ -1,0 +1,101 @@
+[gd_scene load_steps=11 format=3 uid="uid://1ukvuyy2q7gl"]
+
+[ext_resource type="Script" path="res://scripts/extended/console.gd" id="1_ggdd2"]
+[ext_resource type="Texture2D" uid="uid://dani2bw8wv0nc" path="res://sprites/window/console.png" id="1_x7ca3"]
+[ext_resource type="Script" path="res://scripts/window_close.gd" id="3_l0r6w"]
+[ext_resource type="Texture2D" uid="uid://bdar5krh1be7x" path="res://sprites/window/x_default.png" id="4_n0ab6"]
+[ext_resource type="Texture2D" uid="uid://dmdvr3vy55k4g" path="res://sprites/window/minus_default.png" id="5_w5g2a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57cjn"]
+size = Vector2(16, 14)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_52u7q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_se5fm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fs455"]
+
+[sub_resource type="GDScript" id="GDScript_2s3bo"]
+script/source = "extends LineEdit
+
+
+func _on_text_submitted(new_text: String) -> void:
+	pass # Replace with function body.
+"
+
+[node name="Console" type="Node2D"]
+position = Vector2(0, 1)
+script = ExtResource("1_ggdd2")
+title = "Console Access"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(350, 48)
+texture = ExtResource("1_x7ca3")
+
+[node name="close" type="Area2D" parent="."]
+position = Vector2(681, 13)
+script = ExtResource("3_l0r6w")
+
+[node name="Sprite2D" type="Sprite2D" parent="close"]
+position = Vector2(0.999971, 0)
+scale = Vector2(0.484375, 0.445312)
+texture = ExtResource("4_n0ab6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="close"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_57cjn")
+
+[node name="minimize" type="Area2D" parent="."]
+position = Vector2(662, 13)
+
+[node name="Sprite2D" type="Sprite2D" parent="minimize"]
+position = Vector2(0.999971, 0)
+scale = Vector2(0.484375, 0.445312)
+texture = ExtResource("5_w5g2a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="minimize"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_57cjn")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 1.0
+offset_right = 643.0
+offset_bottom = 24.0
+text = "GeOS:"
+
+[node name="Path" type="Label" parent="."]
+offset_left = 7.0
+offset_top = 68.0
+offset_right = 112.0
+offset_bottom = 91.0
+theme_override_font_sizes/font_size = 13
+text = "user_access >"
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Previous" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 25.0
+offset_right = 690.0
+offset_bottom = 76.0
+theme_override_constants/line_spacing = -4
+theme_override_font_sizes/font_size = 13
+clip_text = true
+max_lines_visible = 3
+
+[node name="LineEdit_P" type="LineEdit" parent="."]
+offset_left = 100.0
+offset_top = 73.0
+offset_right = 668.0
+offset_bottom = 91.0
+theme_override_colors/caret_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 13
+theme_override_styles/focus = SubResource("StyleBoxEmpty_52u7q")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_se5fm")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fs455")
+caret_blink = true
+script = SubResource("GDScript_2s3bo")
+
+[connection signal="text_submitted" from="LineEdit_P" to="." method="_on_line_edit_p_text_submitted"]

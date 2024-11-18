@@ -36,3 +36,10 @@ func toggleGlobe():
 		animated_sprite_2d.stop()
 	else:
 		animated_sprite_2d.play("spin")
+
+func open_window(name):
+	pass
+	
+func close():
+	menu.visible = false
+	animated_sprite_2d.stop()
