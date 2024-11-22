@@ -15,6 +15,10 @@ signal email_clicked(obj)
 @onready var profile_name: Label = $Name
 @onready var profile_subject: Label = $Subject
 
+#data
+@export var wasRead:bool
+@export var isStarred:bool
+
 func _ready() -> void:
 	#if(profile_picture != null):
 		#profile_picture.texture = profilePicture
