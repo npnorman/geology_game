@@ -1,8 +1,15 @@
 extends Area2D
 
+#signal to window
+signal email_clicked(obj)
+
 #@export var profilePicture:Texture
 @export var profileName = "Bob Bureaucrat"
 @export var subject = "Earthquake in California"
+
+#email properties
+@export var emailAddr = "bob@global.edu"
+@export_multiline var body = ""
 
 #@onready var profile_picture: Sprite2D = $ProfilePicture
 @onready var profile_name: Label = $Name
@@ -17,7 +24,7 @@ func _ready() -> void:
 
 func _input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("lm_click"):
-		print("clicked")
+		pass
 	
 	if event.is_action_released("lm_click"):
-		print("released")
+		email_clicked.emit(self)

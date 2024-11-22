@@ -49,6 +49,60 @@ offset_bottom = 28.0
 text = "GeOS:"
 metadata/_edit_use_anchors_ = true
 
+[node name="UserName" type="Label" parent="."]
+offset_left = 291.0
+offset_top = 52.0
+offset_right = 693.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "Name:"
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 285.0
+offset_top = 78.0
+offset_right = 693.0
+offset_bottom = 80.0
+color = Color(0.74902, 0.756863, 0.752941, 1)
+
+[node name="EmailAddr" type="Label" parent="."]
+offset_left = 291.0
+offset_top = 79.0
+offset_right = 693.0
+offset_bottom = 106.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "Address:"
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 285.0
+offset_top = 104.0
+offset_right = 693.0
+offset_bottom = 106.0
+color = Color(0.74902, 0.756863, 0.752941, 1)
+
+[node name="SubjectLine" type="Label" parent="."]
+offset_left = 290.0
+offset_top = 105.0
+offset_right = 692.0
+offset_bottom = 132.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "Subject:"
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = 285.0
+offset_top = 133.0
+offset_right = 693.0
+offset_bottom = 135.0
+color = Color(0.74902, 0.756863, 0.752941, 1)
+
 [node name="EmailThumbnailControl" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -57,6 +111,24 @@ offset_top = 50.0
 offset_right = 8.0
 offset_bottom = 50.0
 mouse_filter = 2
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="EmailThumbnailControl"]
+layout_mode = 0
+offset_left = 279.0
+offset_top = 87.0
+offset_right = 682.0
+offset_bottom = 515.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EmailThumbnailControl/ScrollContainer2"]
+custom_minimum_size = Vector2(400, 425)
+layout_mode = 2
+
+[node name="Body" type="Label" parent="EmailThumbnailControl/ScrollContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(400, 425)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+autowrap_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="EmailThumbnailControl"]
 layout_mode = 0

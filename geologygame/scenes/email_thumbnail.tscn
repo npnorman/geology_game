@@ -4,12 +4,10 @@
 [ext_resource type="Script" path="res://scripts/email_thumbnail.gd" id="1_oqfsa"]
 [ext_resource type="Texture2D" uid="uid://dsnv0kk6p3jk3" path="res://sprites/email_window/star_symbol.png" id="3_j4258"]
 [ext_resource type="Texture2D" uid="uid://c1a7uiveg08im" path="res://sprites/email_window/default_pfp.png" id="4_6do0f"]
+[ext_resource type="Texture2D" uid="uid://byq2ylavvbg70" path="res://sprites/email_window/circle.png" id="4_rfbtx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fi8bu"]
-size = Vector2(267.5, 62.5)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_c3wn3"]
-radius = 11.0
+size = Vector2(243.75, 62.5)
 
 [node name="EmailThumbnail" type="Area2D"]
 script = ExtResource("1_oqfsa")
@@ -19,18 +17,17 @@ position = Vector2(134, 32)
 texture = ExtResource("1_2j17k")
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(229, 14)
+[node name="Star" type="Sprite2D" parent="."]
+position = Vector2(256, 44)
 texture = ExtResource("3_j4258")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(135, 32)
-shape = SubResource("RectangleShape2D_fi8bu")
-metadata/_edit_lock_ = true
+[node name="Circle" type="Sprite2D" parent="."]
+position = Vector2(256, 18)
+texture = ExtResource("4_rfbtx")
 
-[node name="Star" type="CollisionShape2D" parent="."]
-position = Vector2(229, 15)
-shape = SubResource("CircleShape2D_c3wn3")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(123.125, 32)
+shape = SubResource("RectangleShape2D_fi8bu")
 
 [node name="ProfilePicture" type="Sprite2D" parent="."]
 position = Vector2(33, 31)
@@ -50,7 +47,7 @@ text_overrun_behavior = 3
 [node name="Subject" type="Label" parent="."]
 offset_left = 61.0
 offset_top = 32.0
-offset_right = 258.0
+offset_right = 245.0
 offset_bottom = 55.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Default Subject for this line"
