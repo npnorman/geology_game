@@ -11,6 +11,7 @@ extends "res://scripts/window.gd"
 const EMAIL_THUMBNAIL = preload("res://scenes/email_thumbnail.tscn")
 
 func _ready() -> void:
+	super._ready()
 	var body = """Hello new recruit!
 	
 	My name is Nick and I am your new supervisor. I will be checking in with you from time to time to make sure everything is going ok!.
