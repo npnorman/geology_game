@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://dogibjovu3ees"]
+
+[ext_resource type="Script" path="res://scripts/extended/email_window.gd" id="1_2s1xs"]
+[ext_resource type="Texture2D" uid="uid://mm4k2mfm81vx" path="res://sprites/window/window.png" id="1_sntes"]
+[ext_resource type="Script" path="res://scripts/window_close.gd" id="2_l5g7l"]
+[ext_resource type="Texture2D" uid="uid://bdar5krh1be7x" path="res://sprites/window/x_default.png" id="3_rsrsg"]
+[ext_resource type="Texture2D" uid="uid://dmdvr3vy55k4g" path="res://sprites/window/minus_default.png" id="4_7wvtp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpxvm"]
+size = Vector2(16, 14)
+
+[node name="EmailWindow" type="Node2D"]
+script = ExtResource("1_2s1xs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(351, 285)
+texture = ExtResource("1_sntes")
+
+[node name="close" type="Area2D" parent="."]
+position = Vector2(682, 17)
+script = ExtResource("2_l5g7l")
+
+[node name="Sprite2D" type="Sprite2D" parent="close"]
+position = Vector2(0.999971, 0)
+scale = Vector2(0.484375, 0.445312)
+texture = ExtResource("3_rsrsg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="close"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_mpxvm")
+
+[node name="minimize" type="Area2D" parent="."]
+position = Vector2(663, 17)
+
+[node name="Sprite2D" type="Sprite2D" parent="minimize"]
+position = Vector2(0.999971, 0)
+scale = Vector2(0.484375, 0.445312)
+texture = ExtResource("4_7wvtp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="minimize"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_mpxvm")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 9.0
+offset_top = 5.0
+offset_right = 101.0
+offset_bottom = 28.0
+text = "GeOS:"
+metadata/_edit_use_anchors_ = true
+
+[node name="EmailThumbnailControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 50.0
+offset_right = 8.0
+offset_bottom = 50.0
+mouse_filter = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="EmailThumbnailControl"]
+layout_mode = 0
+offset_right = 277.0
+offset_bottom = 514.0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EmailThumbnailControl/ScrollContainer"]
+z_index = 3
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 63

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d0oll7s2b2q0p"]
+[gd_scene load_steps=21 format=3 uid="uid://d0oll7s2b2q0p"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_2vd4i"]
 [ext_resource type="Texture2D" uid="uid://dn0ustqpxrntp" path="res://sprites/98-background.png" id="1_eu3e4"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bfmbclxnq4la6" path="res://scenes/sp_interval_calculator.tscn" id="4_k58i7"]
 [ext_resource type="PackedScene" uid="uid://1ukvuyy2q7gl" path="res://scenes/console.tscn" id="5_fwu1a"]
 [ext_resource type="PackedScene" uid="uid://bck62v163p0j4" path="res://scenes/clock.tscn" id="6_e05s8"]
+[ext_resource type="PackedScene" uid="uid://dogibjovu3ees" path="res://scenes/email_window.tscn" id="6_jimeg"]
 [ext_resource type="Texture2D" uid="uid://5ki5aig2ysb7" path="res://sprites/global_university_background_logo.png" id="6_nx2wh"]
 [ext_resource type="Texture2D" uid="uid://b8qx06lc8845n" path="res://sprites/icons/seismograph_icon.png" id="7_1lj2y"]
 [ext_resource type="PackedScene" uid="uid://doxu3oo3kxdoh" path="res://scenes/window.tscn" id="7_g5slx"]
@@ -48,6 +49,11 @@ position = Vector2(303, 614)
 instanceName = "console"
 persistent = true
 
+[node name="EmailWindow" parent="Windows" instance=ExtResource("6_jimeg")]
+position = Vector2(304, 33)
+title = "Virtual Mail"
+instanceName = "email"
+
 [node name="98Background" type="Sprite2D" parent="."]
 position = Vector2(512, 384)
 texture = ExtResource("1_eu3e4")
@@ -76,7 +82,7 @@ window = "tutorial"
 [node name="Email" parent="DesktopIcons" instance=ExtResource("4_h504c")]
 position = Vector2(68, 239)
 icon_texture = ExtResource("9_1cr0g")
-label_text = "Email"
+label_text = "Virtual-Mail"
 window = "email"
 
 [node name="Report" parent="DesktopIcons" instance=ExtResource("4_h504c")]
