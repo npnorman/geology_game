@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://xjuuqhuwuxus"]
+[gd_scene load_steps=8 format=3 uid="uid://xjuuqhuwuxus"]
 
 [ext_resource type="Texture2D" uid="uid://d4h4uk0vy0ufj" path="res://sprites/email_window/email_thumbnail.png" id="1_2j17k"]
 [ext_resource type="Script" path="res://scripts/email_thumbnail.gd" id="1_oqfsa"]
-[ext_resource type="Texture2D" uid="uid://dsnv0kk6p3jk3" path="res://sprites/email_window/star_symbol.png" id="3_j4258"]
 [ext_resource type="Texture2D" uid="uid://c1a7uiveg08im" path="res://sprites/email_window/default_pfp.png" id="4_6do0f"]
+[ext_resource type="PackedScene" uid="uid://dvesuj285mduh" path="res://scenes/email_button.tscn" id="4_q8cpk"]
 [ext_resource type="Texture2D" uid="uid://byq2ylavvbg70" path="res://sprites/email_window/circle.png" id="4_rfbtx"]
+[ext_resource type="Texture2D" uid="uid://b58elejk3iskq" path="res://sprites/email_window/circle_outline.png" id="6_yd1kn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fi8bu"]
 size = Vector2(243.75, 62.5)
@@ -16,14 +17,6 @@ script = ExtResource("1_oqfsa")
 position = Vector2(134, 32)
 texture = ExtResource("1_2j17k")
 metadata/_edit_lock_ = true
-
-[node name="Star" type="Sprite2D" parent="."]
-position = Vector2(256, 44)
-texture = ExtResource("3_j4258")
-
-[node name="Circle" type="Sprite2D" parent="."]
-position = Vector2(256, 18)
-texture = ExtResource("4_rfbtx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(123.125, 32)
@@ -53,3 +46,11 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Default Subject for this line"
 clip_text = true
 text_overrun_behavior = 3
+
+[node name="Star" parent="." instance=ExtResource("4_q8cpk")]
+position = Vector2(246, 22)
+
+[node name="Circle" parent="." instance=ExtResource("4_q8cpk")]
+position = Vector2(246, 1)
+default_texture = ExtResource("4_rfbtx")
+clicked_texture = ExtResource("6_yd1kn")

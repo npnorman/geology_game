@@ -14,6 +14,7 @@ signal email_clicked(obj)
 #@onready var profile_picture: Sprite2D = $ProfilePicture
 @onready var profile_name: Label = $Name
 @onready var profile_subject: Label = $Subject
+@onready var circle: Area2D = $Circle
 
 func _ready() -> void:
 	#if(profile_picture != null):
@@ -29,4 +30,5 @@ func _input_event(viewport, event, shape_idx):
 	if event.is_action_released("lm_click"):
 		email_clicked.emit(self)
 		
-		#set circle to read
+		circle.isClicked = true
+		circle.toggle_sprite()
